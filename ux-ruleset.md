@@ -1,8 +1,10 @@
-# UX Ruleset — Part 1: Pages, States, Forms, Buttons, Degradation
+# UX Ruleset — Agent Principles
 
 A drop-in ruleset for AI coding agents. Apply these rules to every page, form, and interactive component before considering the work complete. Do not ship code that violates any rule below without an explicit, stated reason.
 
 ---
+
+# Part 1: Pages, States, Forms, Buttons, Degradation
 
 ## 1. Static vs. Dynamic Classification
 
@@ -70,6 +72,48 @@ Every dynamic page or component must handle:
 
 ---
 
+# Part 2: Foundational Psychology
+
+## 6. Jakob's Law — Match Existing Conventions
+
+Users spend most of their time on other apps, not yours. They arrive with expectations already formed — where the back button lives, what a hamburger icon means, how a swipe gesture behaves.
+
+**Rule:** Default to the interaction pattern users already know for a given context (navigation, forms, gestures, icons) unless there's a specific, stated reason to deviate. Novelty in UI is a cost that must be paid for with a clear benefit — it is never free.
+
+---
+
+## 7. Hick's Law — Every Option Has a Tax
+
+The time it takes someone to decide increases with the number and complexity of choices in front of them — for every user looking at that set of choices, not just the one who picks the option buried at the bottom.
+
+**Rule:** Before adding another visible option to a screen, ask whether it needs to be visible by default or whether it can be grouped, defaulted, or tucked behind progressive disclosure. Every option added to the main view is a small tax charged to every user, not just the ones who need it.
+
+---
+
+## 8. Fitts's Law — Size and Distance Are Not Cosmetic
+
+The time to move to and select a target depends on how far away it is and how big it is. Bigger, closer targets get hit faster and more accurately.
+
+**Rule:** Primary actions belong close to where the user's hand already is — bottom-anchored on mobile, not top-anchored by default. Meet minimum touch target sizes (see Rule 4), and treat distance from the user's resting hand position as a first-class layout factor, not an afterthought.
+
+---
+
+## 9. Miller's Law — Chunk Past ~7 Items
+
+People can hold roughly 7±2 discrete items in working memory at once. A flat list beyond that ceiling creates real cognitive strain, even when the user can't name why the screen feels exhausting.
+
+**Rule:** Any screen presenting more than roughly 7 discrete items — fields, menu options, filters — should group them into clearly labeled chunks rather than presenting a single flat list.
+
+---
+
+## 10. Tesler's Law — Complexity Moves, It Doesn't Vanish
+
+Every system has inherent complexity that cannot be removed, only moved between the system and the user. Someone has to deal with it — the only real choice is who.
+
+**Rule:** Before removing a UI element in the name of simplicity, ask where its complexity goes. If the answer is "onto the user, every time they use this," that's not simplification — it's a transfer. Absorb complexity into the system when the system can handle it reliably once, rather than asking the user to handle it correctly every time.
+
+---
+
 ## Pre-Ship Checklist
 
 - [ ] Every page is classified as static or dynamic
@@ -89,3 +133,8 @@ Every dynamic page or component must handle:
 - [ ] Network loss is detected and acknowledged, not hidden
 - [ ] Partial data is shown honestly, not collapsed into success or failure
 - [ ] Unsupported features are disabled/hidden with an explanation, not left broken
+- [ ] Interaction patterns (nav, gestures, icons) match existing conventions unless deviation is deliberate and justified
+- [ ] No screen has more visible options than necessary; extras are grouped, defaulted, or hidden behind progressive disclosure
+- [ ] Primary actions sit within easy reach of the user's resting hand position (bottom-anchored on mobile)
+- [ ] Lists/forms with more than ~7 items are chunked into labeled groups
+- [ ] Any simplification is checked for complexity it may have shifted onto the user rather than removed
